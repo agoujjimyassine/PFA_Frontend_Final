@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  margin-top: 20px;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #D2FBF8;
+}
+
+#table-style{
+  margin-top: 50px;
+}

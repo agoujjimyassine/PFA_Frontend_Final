@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Fournisseurs</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>ID</th> <th>Adresse</th> <th>Nom</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fournisseur of pageFournisseurs?.content">
+          <td>{{fournisseur.id}}</td>
+          <td>{{fournisseur.adresse}}</td>
+          <td>{{fournisseur.nom}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditFournisseur(fournisseur.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteFournisseur(fournisseur)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-fournisseur" class="btn btn-primary">Ajouter un Fournisseur</button>
+      </div>
+    </div>
+  </div>
+</div>
+
