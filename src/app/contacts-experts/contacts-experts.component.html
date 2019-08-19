@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Contacts</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Prénom</th> <th>Poste</th> <th>Téléphone</th> <th>Email</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contactExpert of listContactsExperts">
+          <td *ngIf="contactExpert">{{contactExpert.nom}}</td>
+          <td *ngIf="contactExpert">{{contactExpert.prenom}}</td>
+          <td *ngIf="contactExpert">{{contactExpert.post}}</td>
+          <td *ngIf="contactExpert">{{contactExpert.telephone}}</td>
+          <td *ngIf="contactExpert">{{contactExpert.email}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditContactexpert(contactExpert.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteContactExpert(contactExpert)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addContactExpert(id)" class="btn btn-primary">Ajouter un Contact</button>
+      </div>
+    </div>
+  </div>
+</div>
+

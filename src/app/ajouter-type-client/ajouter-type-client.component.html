@@ -1,0 +1,29 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Type Client: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Nom</label>
+          <input class="form-control" type="text" [(ngModel)]="typeClient.nom"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Description</label>
+          <input class="form-control" type="text" [(ngModel)]="typeClient.description"/>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveTypeClient()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

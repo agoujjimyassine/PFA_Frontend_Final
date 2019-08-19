@@ -1,0 +1,59 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur l'expert: </div>
+    <div class="card-body">
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Raison Sociale</label>
+                <input class="form-control" type="text" *ngIf="expert" [(ngModel)]="expert.raisonSociale"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Téléphone</label>
+                <input class="form-control" type="tel" *ngIf="expert" [(ngModel)]="expert.telephone"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Email</label>
+                <input class="form-control" type="email" *ngIf="expert" [(ngModel)]="expert.email"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Adresse</label>
+                <input class="form-control" type="text" *ngIf="expert" [(ngModel)]="expert.adresse"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Ville</label>
+                <input class="form-control" type="text" *ngIf="expert" [(ngModel)]="expert.ville"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" (click)="updateExpert()">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <app-dossiers-expert *ngIf="expert" [id]="expert.id"></app-dossiers-expert>
+  </div>
+
+</div>

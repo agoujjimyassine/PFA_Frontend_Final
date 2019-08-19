@@ -1,0 +1,15 @@
+<div *ngIf="info.token; else loggedOut">
+  <div style="margin-left: 40%">
+  <h5 class="text-primary">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+  </p>
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  <b style="margin-left: 50%">Please Login</b>
+</ng-template>
+
+<img src="../assets/peter.jpg" style="height: 500px; width: 100%">

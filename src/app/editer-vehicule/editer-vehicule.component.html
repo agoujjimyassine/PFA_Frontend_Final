@@ -1,0 +1,120 @@
+<div class="card" id="edit-style">
+  <div class="card-header">La Véhicule concernée: </div>
+  <div class="card-body">
+    <div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Couleur</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.couleur"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date de la circulation</label>
+              <input class="form-control" type="date" *ngIf="vehicule" [(ngModel)]="vehicule.dateCirculation"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Description</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.description"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Immatriculation</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.immatriculation"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Kilométrage</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.kilometrage"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Numéro de la série</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.numeroSerie"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Propriétaire</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.proprietaire"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Référence de la couleur</label>
+              <input class="form-control" type="text" *ngIf="vehicule" [(ngModel)]="vehicule.referenceCouleur"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Type Carburant</label>
+
+              <select class="custom-select" *ngIf="typeCarburant1" [(ngModel)]="typeCarburant1.id">
+                <option *ngFor="let typeCarburant of pageTypesCarburants?.content" [value]="typeCarburant.id">{{typeCarburant.nom}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Puissance Fiscale</label>
+
+              <select class="custom-select" *ngIf="puissanceFiscale1" [(ngModel)]="puissanceFiscale1.id">
+                <option *ngFor="let puissanceFiscale of pagePuissancesFiscales?.content" [value]="puissanceFiscale.id">{{puissanceFiscale.nom}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Modéle Véhicule</label>
+
+              <select class="custom-select" *ngIf="modeleVehicule1" [(ngModel)]="modeleVehicule1.id">
+                <option *ngFor="let modeleVehicule of pageModelesVehicules?.content" [value]="modeleVehicule.id">{{modeleVehicule.nom}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Marque Véhicule</label>
+
+              <select class="custom-select" *ngIf="marqueVehicule1" [(ngModel)]="marqueVehicule1.id">
+                <option *ngFor="let marqueVehicule of pageMarquesVehicules?.content" [value]="marqueVehicule.id">{{marqueVehicule.nom}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="btn btn-primary" (click)="updateVehicule()">Save</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

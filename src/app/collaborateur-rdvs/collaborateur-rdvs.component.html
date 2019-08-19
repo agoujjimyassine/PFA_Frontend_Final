@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Collaborateurs</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Prénom</th> <th>Description</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let collaborateurRdv of listCollaborateurRdv">
+          <td *ngIf="collaborateurRdv?.collaborateur">{{collaborateurRdv.collaborateur.nom}}</td>
+          <td *ngIf="collaborateurRdv?.collaborateur">{{collaborateurRdv.collaborateur.prenom}}</td>
+          <td>{{collaborateurRdv.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditCollaborateurRdv(collaborateurRdv.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteCollaborateurRdv(collaborateurRdv)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addCollaborateurRdv(id)" class="btn btn-primary">Ajouter un Collaborateur</button>
+      </div>
+    </div>
+  </div>
+</div>
+

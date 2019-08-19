@@ -1,0 +1,30 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouvelle Compagnie d'Assurance: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Raison Sociale</label>
+              <input class="form-control" type="text" [(ngModel)]="compagnieAssurance.raisonSociale"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Logo</label>
+              <input class="form-control" type="text" [(ngModel)]="compagnieAssurance.logo"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveCompagnieAssurance()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

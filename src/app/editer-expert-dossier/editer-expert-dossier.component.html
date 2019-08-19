@@ -1,0 +1,74 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur l'Expert: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Raison Sociale</label>
+              <input class="form-control" type="text" *ngIf="expertDossier?.expert" [(ngModel)]="expertDossier.expert.raisonSociale"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Téléphone</label>
+              <input class="form-control" type="tel" *ngIf="expertDossier?.expert" [(ngModel)]="expertDossier?.expert.telephone"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Email</label>
+              <input class="form-control" type="email" *ngIf="expertDossier?.expert" [(ngModel)]="expertDossier.expert.email"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Adresse</label>
+              <input class="form-control" type="text" *ngIf="expertDossier?.expert" [(ngModel)]="expertDossier?.expert.adresse"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Ville</label>
+              <input class="form-control" type="email" *ngIf="expertDossier?.expert" [(ngModel)]="expertDossier.expert.ville"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date</label>
+              <input class="form-control" type="date" *ngIf="expertDossier" [(ngModel)]="expertDossier.date"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Description</label>
+              <input class="form-control" type="text" *ngIf="expertDossier" [(ngModel)]="expertDossier.description"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="updateExpertDossier()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <app-contacts-experts *ngIf="expertDossier" [id]="expertDossier.id"></app-contacts-experts>
+  </div>
+
+</div>

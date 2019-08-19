@@ -1,0 +1,87 @@
+<div class="container" id="edit-style">
+<div class="card">
+    <div class="card-header">Le Client concerné: </div>
+    <div class="card-body">
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Adresse</label>
+                <input class="form-control" type="text" *ngIf="client" [(ngModel)]="client.adresse"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Email</label>
+                <input class="form-control" type="email" *ngIf="client" [(ngModel)]="client.email"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Nom</label>
+                <input class="form-control" type="text" *ngIf="client" [(ngModel)]="client.nom"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Prénom</label>
+                <input class="form-control" type="text" *ngIf="client" [(ngModel)]="client.prenom"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Téléphone</label>
+                <input class="form-control" type="tel" *ngIf="client" [(ngModel)]="client.telephone"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Ville</label>
+                <input class="form-control" type="text" *ngIf="client" [(ngModel)]="client.ville"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Fidélité</label>
+                <input class="form-control" type="number" *ngIf="client" [(ngModel)]="client.fidelite"/>
+              </div>
+            </div>
+
+            <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Type Client</label>
+
+              <select class="custom-select" *ngIf="typeClient1" [(ngModel)]="typeClient1.id">
+                <option *ngFor="let typeClient of pageTypesClients?.content" [value]="typeClient.id">{{typeClient.nom}}</option>
+              </select>
+              <div>
+                <button class="btn btn-outline-secondary" type="button" routerLink="/ajouter-type-client">Autre</button>
+              </div>
+            </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" (click)="updateClient()">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+  <div>
+      <app-contacts-clients *ngIf="client" [id]="client.id"></app-contacts-clients>
+    </div>
+
+</div>

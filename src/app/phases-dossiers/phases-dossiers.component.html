@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Phases Dossiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Ordre</th> <th>Date Début</th> <th>Date Fin</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let phaseDossier of listPhasesDossiers">
+          <td *ngIf="phaseDossier?.phase">{{phaseDossier.phase.nom}}</td>
+          <td *ngIf="phaseDossier?.phase">{{phaseDossier.phase.ordre}}</td>
+          <td *ngIf="phaseDossier">{{phaseDossier.dateDebut}}</td>
+          <td *ngIf="phaseDossier">{{phaseDossier.dateFin}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditPhaseDossier(phaseDossier.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeletePhaseDossier(phaseDossier)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addPhaseDossier(id)" class="btn btn-primary">Ajouter un Contact Dossier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

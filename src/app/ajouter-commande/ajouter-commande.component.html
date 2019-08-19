@@ -1,0 +1,38 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouvelle Commande: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Référence</label>
+              <input class="form-control" type="text" [(ngModel)]="commande.reference"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date de Création</label>
+              <input class="form-control" type="date" [(ngModel)]="commande.dateCreation"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Montant</label>
+              <input class="form-control" type="number" [(ngModel)]="commande.montant"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveCommande()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

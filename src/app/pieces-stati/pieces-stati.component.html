@@ -1,0 +1,26 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nombre de fois d'utilisation des piéces détachées: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Nom du Piéce Détachée</label>
+
+              <select class="custom-select" [(ngModel)]="id1">
+                <option *ngFor="let pieceDetachee of pagePiecesDetachees?.content" [value]="pieceDetachee.id">{{pieceDetachee.nom}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="send(id1)">Envoyer</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

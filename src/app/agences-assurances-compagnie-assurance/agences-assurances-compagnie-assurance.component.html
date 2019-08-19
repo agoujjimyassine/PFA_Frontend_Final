@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Agences d'Assurances</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Raison Sociale</th> <th>Téléphone</th> <th>Email</th> <th>Adresse</th> <th>Ville</th> <th>Fax</th> <th>Dossier</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let agenceAssurance of listAgencesAssurances">
+          <td *ngIf="agenceAssurance">{{agenceAssurance.raisonSociale}}</td>
+          <td *ngIf="agenceAssurance">{{agenceAssurance.telephone}}</td>
+          <td *ngIf="agenceAssurance">{{agenceAssurance.email}}</td>
+          <td *ngIf="agenceAssurance">{{agenceAssurance.adresse}}</td>
+          <td *ngIf="agenceAssurance">{{agenceAssurance.ville}}</td>
+          <td *ngIf="agenceAssurance">{{agenceAssurance.fax}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="voirDossiers(agenceAssurance.id)">Dossier</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

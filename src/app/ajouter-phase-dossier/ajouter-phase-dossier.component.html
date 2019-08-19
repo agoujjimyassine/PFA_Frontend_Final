@@ -1,0 +1,45 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Contact: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Nom</label>
+              <input class="form-control" type="text" [(ngModel)]="phase.nom"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Ordre</label>
+              <input class="form-control" type="text" [(ngModel)]="phase.ordre"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date Début</label>
+              <input class="form-control" type="date" [(ngModel)]="phaseDossier.dateDebut"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date Fin</label>
+              <input class="form-control" type="date" [(ngModel)]="phaseDossier.dateFin"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="savePhaseDossier()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

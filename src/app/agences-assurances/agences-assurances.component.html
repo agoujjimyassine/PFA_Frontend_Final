@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Agences Assurances</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Raison Sociale</th> <th>Téléphone</th> <th>Fax</th> <th>Email</th> <th>Adresse</th> <th>Ville</th> <th>Description</th> <th>Dossiers</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let agenceAssurance of pageAgencesAssurances?.content">
+          <td>{{agenceAssurance.raisonSociale}}</td>
+          <td>{{agenceAssurance.telephone}}</td>
+          <td>{{agenceAssurance.fax}}</td>
+          <td>{{agenceAssurance.email}}</td>
+          <td>{{agenceAssurance.adresse}}</td>
+          <td>{{agenceAssurance.ville}}</td>
+          <td>{{agenceAssurance.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="voirDossiers(agenceAssurance.id)">Dossier</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteAgenceAssurance(agenceAssurance)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

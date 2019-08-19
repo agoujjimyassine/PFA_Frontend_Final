@@ -1,0 +1,38 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouvelle Demande de Réparation: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Numéro</label>
+              <input class="form-control" type="text" [(ngModel)]="demandeReparation.numero"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Observation</label>
+              <input class="form-control" type="text" [(ngModel)]="demandeReparation.observation"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date de Création</label>
+              <input class="form-control" type="date" [(ngModel)]="demandeReparation.dateCreation"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveDemandeReparation()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Contacts Dossiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Prénom</th> <th>Poste</th> <th>Téléphone</th> <th>Email</th> <th>Description sur le Contact</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contactDossier of listContactsDossiers">
+          <td *ngIf="contactDossier?.contact">{{contactDossier.contact.nom}}</td>
+          <td *ngIf="contactDossier?.contact">{{contactDossier.contact.prenom}}</td>
+          <td *ngIf="contactDossier?.contact">{{contactDossier.contact.post}}</td>
+          <td *ngIf="contactDossier?.contact">{{contactDossier.contact.telephone}}</td>
+          <td *ngIf="contactDossier?.contact">{{contactDossier.contact.email}}</td>
+          <td>{{contactDossier.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditContactDossier(contactDossier.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteContactDossier(contactDossier)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addContactDossier(id)" class="btn btn-primary">Ajouter un Contact Dossier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

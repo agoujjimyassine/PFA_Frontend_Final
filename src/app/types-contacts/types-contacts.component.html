@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Types Contacts</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Description</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let typeContact of pageTypesContacts?.content">
+          <td>{{typeContact.nom}}</td>
+          <td>{{typeContact.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditTypeContact(typeContact.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteTypeContact(typeContact)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-type-contact" class="btn btn-primary">Ajouter Type Contact</button>
+      </div>
+    </div>
+  </div>
+</div>
+

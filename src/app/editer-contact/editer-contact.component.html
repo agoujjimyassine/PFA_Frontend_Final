@@ -1,0 +1,69 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur le Contact: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Nom</label>
+              <input class="form-control" type="text" *ngIf="contact" [(ngModel)]="contact.nom"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Prénom</label>
+              <input class="form-control" type="text" *ngIf="contact" [(ngModel)]="contact.prenom"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Poste</label>
+              <input class="form-control" type="text" *ngIf="contact" [(ngModel)]="contact.post"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Téléphone</label>
+              <input class="form-control" type="tel" *ngIf="contact" [(ngModel)]="contact.telephone"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Email</label>
+              <input class="form-control" type="email" *ngIf="contact" [(ngModel)]="contact.email"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Type Contact</label>
+
+              <select class="custom-select" *ngIf="typeContact1" [(ngModel)]="typeContact1.id">
+                <option *ngFor="let typeContact of pageTypesContacts?.content" [value]="typeContact.id">{{typeContact.nom}}</option>
+              </select>
+              <div>
+                <button class="btn btn-outline-secondary" type="button" routerLink="/ajouter-type-contact">Autre</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <button class="btn btn-primary" (click)="updateContact()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

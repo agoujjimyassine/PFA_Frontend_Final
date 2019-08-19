@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Collaborateurs</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Prénom</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let collaborateur of pageCollaborateurs?.content">
+          <td *ngIf="collaborateur.nom!='Rien'">{{collaborateur.nom}}</td>
+          <td *ngIf="collaborateur.nom!='Rien'">{{collaborateur.prenom}}</td>
+          <td *ngIf="collaborateur.nom!='Rien'"><button type="button" class="btn btn-primary" (click)="onEditCollaboratuer(collaborateur.id)">Editer</button></td>
+          <td *ngIf="collaborateur.nom!='Rien'"><button type="button" class="btn btn-danger" (click)="onDeleteColaborateur(collaborateur)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-collaborateur" class="btn btn-primary">Ajouter Compagnie</button>
+      </div>
+    </div>
+  </div>
+</div>
+

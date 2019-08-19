@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Rendez Vous</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Date</th> <th>Durée</th> <th>Note</th> <th>Rapport</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let rendezVous of listRendezVous">
+          <td>{{rendezVous.date}}</td>
+          <td>{{rendezVous.duree}}</td>
+          <td>{{rendezVous.note}}</td>
+          <td>{{rendezVous.rapport}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditRendezVous(rendezVous.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteRendezVous(rendezVous)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addRendezVous(id)" class="btn btn-primary">Ajouter un Rendez Vous</button>
+      </div>
+    </div>
+  </div>
+</div>
+

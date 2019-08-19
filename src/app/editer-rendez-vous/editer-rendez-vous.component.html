@@ -1,0 +1,74 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur le Rendez Vous: </div>
+    <div class="card-body">
+      <div>
+        <div class="container">
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Date</label>
+          <input class="form-control" type="date" *ngIf="rendezVous" [(ngModel)]="rendezVous.date"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Durée</label>
+          <input class="form-control" type="text" *ngIf="rendezVous" [(ngModel)]="rendezVous.duree"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Note</label>
+          <input class="form-control" type="text" *ngIf="rendezVous" [(ngModel)]="rendezVous.note"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Rapport</label>
+          <input class="form-control" type="text" *ngIf="rendezVous" [(ngModel)]="rendezVous.rapport"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Statut Rendez Vous</label>
+
+          <select class="custom-select" *ngIf="statutRdv1" [(ngModel)]="statutRdv1.id">
+            <option *ngFor="let statutRdv of pageStatutsRdvs?.content" [value]="statutRdv.id">{{statutRdv.nom}}</option>
+          </select>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Motif</label>
+
+          <select class="custom-select" *ngIf="motif1" [(ngModel)]="motif1.id">
+            <option *ngFor="let motif of pageMotifs?.content" [value]="motif.id">{{motif.nom}}</option>
+          </select>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="updateRendezVous()">Save</button>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <app-editer-contact *ngIf="rendezVous?.contact" [id]="rendezVous.contact.id"></app-editer-contact>
+
+  <div>
+    <app-collaborateur-rdvs *ngIf="rendezVous" [id]="rendezVous.id"></app-collaborateur-rdvs>
+  </div>
+
+</div>

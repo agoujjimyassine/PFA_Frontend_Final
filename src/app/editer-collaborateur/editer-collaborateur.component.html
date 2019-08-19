@@ -1,0 +1,31 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur l'employé: </div>
+    <div class="card-body">
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Nom</label>
+                <input class="form-control" type="text" *ngIf="collaborateur" [(ngModel)]="collaborateur.nom"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Prénom</label>
+                <input class="form-control" type="text" *ngIf="collaborateur" [(ngModel)]="collaborateur.prenom"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" (click)="updateCollaborateur()">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

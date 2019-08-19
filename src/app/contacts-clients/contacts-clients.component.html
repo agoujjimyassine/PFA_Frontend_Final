@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Contacts</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Prénom</th> <th>Poste</th> <th>Téléphone</th> <th>Email</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contactClient of listContactsClients">
+          <td *ngIf="contactClient">{{contactClient.nom}}</td>
+          <td *ngIf="contactClient">{{contactClient.prenom}}</td>
+          <td *ngIf="contactClient">{{contactClient.post}}</td>
+          <td *ngIf="contactClient">{{contactClient.telephone}}</td>
+          <td *ngIf="contactClient">{{contactClient.email}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditContactClient(contactClient.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteContactClient(contactClient)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addContactClient(id)" class="btn btn-primary">Ajouter un Contact</button>
+      </div>
+    </div>
+  </div>
+</div>
+

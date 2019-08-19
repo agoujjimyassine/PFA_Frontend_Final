@@ -1,0 +1,83 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Client: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Nom</label>
+          <input class="form-control" type="text" [(ngModel)]="client.nom"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Prénom</label>
+          <input class="form-control" type="text" [(ngModel)]="client.prenom"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Email</label>
+          <input class="form-control" type="email" [(ngModel)]="client.email"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+        <label class="col-form-label">Téléphone</label>
+        <input class="form-control" type="tel" [(ngModel)]="client.telephone"/>
+      </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Adresse</label>
+          <input class="form-control" type="text" [(ngModel)]="client.adresse"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+        <label class="col-form-label">Ville</label>
+        <input class="form-control" type="text" [(ngModel)]="client.ville"/>
+      </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Fidélité</label>
+          <input class="form-control" type="number" [(ngModel)]="client.fidelite"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Type Client</label>
+
+          <select class="custom-select" [(ngModel)]="id1">
+            <option *ngFor="let typeClient of pageTypesClients?.content" [value]="typeClient.id">{{typeClient.nom}}</option>
+          </select>
+          <div>
+            <button class="btn btn-outline-secondary" type="button" routerLink="/ajouter-type-client">Autre</button>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveClient(id1)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

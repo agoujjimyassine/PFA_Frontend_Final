@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Paramétrage</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li *ngIf="authority==='admin'">
+        <a href="agences-assurances">Agence Assurance</a>
+      </li>
+
+      <li *ngIf="authority==='admin'">
+        <a href="compagnies-assurances">Compagnie Assurance</a>
+      </li>
+
+      <li *ngIf="authority==='admin'">
+        <a href="collaborateurs">Employé</a>
+      </li>
+
+      <li>
+        <a href="#">Etat Piéce</a>
+      </li>
+
+      <li *ngIf="authority==='admin'">
+        <a href="experts">Expert</a>
+      </li>
+
+      <li>
+        <a href="#">Marque Véhicule</a>
+      </li>
+
+      <li>
+        <a href="#">Modéle Véhicule</a>
+      </li>
+
+      <li>
+        <a href="#">Motif</a>
+      </li>
+
+      <li>
+        <a href="#">Puissance Fiscale</a>
+      </li>
+
+      <li *ngIf="authority==='admin'">
+        <a href="roles">Role</a>
+      </li>
+
+      <li>
+        <a href="#">Type Carburant</a>
+      </li>
+
+      <li>
+        <a href="types-clients">Type Client</a>
+      </li>
+
+      <li>
+        <a href="types-contacts">Type Contact</a>
+      </li>
+
+      <li>
+        <a href="#">Type Contrat</a>
+      </li>
+
+      <li>
+        <a href="#">Type Fichier</a>
+      </li>
+
+      <li>
+        <a href="#">Statut Rendez-Vous</a>
+      </li>
+
+    </ul>
+  </nav>
+</div>

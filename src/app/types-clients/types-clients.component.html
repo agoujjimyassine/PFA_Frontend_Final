@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Types Clients</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Description</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let typeClient of pageTypesClients?.content">
+          <td>{{typeClient.nom}}</td>
+          <td>{{typeClient.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditTypeClient(typeClient.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteTypeClient(typeClient)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-type-client" class="btn btn-primary">Ajouter Type Client</button>
+      </div>
+    </div>
+  </div>
+</div>
+

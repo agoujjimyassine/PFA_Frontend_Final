@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Experts Dossiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Raison Sociale</th> <th>Téléphone</th> <th>Email</th> <th>Adresse</th> <th>Ville</th> <th>Date</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let expertDossier of listExpertsDossiers">
+          <td *ngIf="expertDossier?.expert">{{expertDossier.expert.raisonSociale}}</td>
+          <td *ngIf="expertDossier?.expert">{{expertDossier.expert.telephone}}</td>
+          <td *ngIf="expertDossier?.expert">{{expertDossier.expert.email}}</td>
+          <td *ngIf="expertDossier?.expert">{{expertDossier.expert.adresse}}</td>
+          <td *ngIf="expertDossier?.expert">{{expertDossier.expert.ville}}</td>
+          <td>{{expertDossier.date}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditExpertDossier(expertDossier.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteExpertDossier(expertDossier)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addExpertDossier(id)" class="btn btn-primary">Ajouter un Contact Dossier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

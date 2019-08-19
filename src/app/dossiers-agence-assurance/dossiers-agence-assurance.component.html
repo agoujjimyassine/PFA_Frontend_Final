@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Dossiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Numéro</th> <th>Date Création</th> <th>Statut</th> <th>Observation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let dossier of listDossiers">
+          <td *ngIf="dossier">{{dossier.numero}}</td>
+          <td *ngIf="dossier">{{dossier.dateCreation}}</td>
+          <td *ngIf="dossier">{{dossier.statut}}</td>
+          <td *ngIf="dossier">{{dossier.observation}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

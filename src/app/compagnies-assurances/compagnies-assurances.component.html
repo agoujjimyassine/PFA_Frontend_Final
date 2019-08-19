@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Compagnies Assurances</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Raison Sociale</th> <th>Logo</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let compagnieAssurance of pageCompagniesAssurances?.content">
+          <td>{{compagnieAssurance.raisonSociale}}</td>
+          <td>{{compagnieAssurance.logo}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditCompagnieAssurance(compagnieAssurance.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteCompagnieAssurance(compagnieAssurance)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-compagnie-assurance" class="btn btn-primary">Ajouter Compagnie</button>
+      </div>
+    </div>
+  </div>
+</div>
+

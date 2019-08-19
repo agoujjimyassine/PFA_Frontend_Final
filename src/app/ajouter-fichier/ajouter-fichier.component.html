@@ -1,0 +1,41 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Fichier: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Nom</label>
+          <input class="form-control" type="text" [(ngModel)]="fichier.nom"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Chemin</label>
+          <input class="form-control" type="text" [(ngModel)]="fichier.chemin"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Type Fichier</label>
+
+          <select class="custom-select" [(ngModel)]="id1">
+            <option *ngFor="let typeFichier of pageTypesFichiers?.content" [value]="typeFichier.id">{{typeFichier.nom}}</option>
+          </select>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveFichier(id1)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

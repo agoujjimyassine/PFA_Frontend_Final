@@ -1,0 +1,69 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Expert: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Raison Sociale</label>
+              <input class="form-control" type="text" [(ngModel)]="expert.raisonSociale"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Téléphone</label>
+              <input class="form-control" type="tel" [(ngModel)]="expert.telephone"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Email</label>
+              <input class="form-control" type="email" [(ngModel)]="expert.email"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Adresse</label>
+              <input class="form-control" type="text" [(ngModel)]="expert.adresse"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Ville</label>
+              <input class="form-control" type="text" [(ngModel)]="expert.ville"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Date</label>
+              <input class="form-control" type="date" [(ngModel)]="expertDossier.date"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Description</label>
+              <input class="form-control" type="text" [(ngModel)]="expertDossier.description"/>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveExpertDossier()">Save</button>
+
+      </div>
+    </div>
+  </div>

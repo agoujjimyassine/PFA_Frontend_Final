@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Taches</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Description</th> <th>Importance</th> <th>Editer</th> <th *ngIf="authority==='accueil'">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let tache of listTaches">
+          <td>{{tache.nom}}</td>
+          <td>{{tache.description}}</td>
+          <td>{{tache.importance}} %</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditTache(tache.id)">Editer</button></td>
+          <td *ngIf="authority==='accueil'"><button type="button" class="btn btn-danger" (click)="onDeleteTache(tache)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div *ngIf="authority==='accueil'">
+        <button type="button" (click)="addTache(id)" class="btn btn-primary">Ajouter Tache</button>
+      </div>
+    </div>
+  </div>
+</div>

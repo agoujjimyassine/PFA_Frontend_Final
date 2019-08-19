@@ -1,0 +1,76 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Contact: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+        <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Nom</label>
+          <input class="form-control" type="text" [(ngModel)]="contact.nom"/>
+        </div>
+        </div>
+
+          <div class="col-6">
+        <div class="form-group">
+        <label class="col-form-label">Prénom</label>
+        <input class="form-control" type="text" [(ngModel)]="contact.prenom"/>
+      </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Poste</label>
+          <input class="form-control" type="text" [(ngModel)]="contact.post"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Email</label>
+          <input class="form-control" type="email" [(ngModel)]="contact.email"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Téléphone</label>
+          <input class="form-control" type="tel" [(ngModel)]="contact.telephone"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Description</label>
+          <input class="form-control" type="text" [(ngModel)]="contactDossier.description"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Type Contact</label>
+
+          <select class="custom-select" [(ngModel)]="id1">
+            <option *ngFor="let typeContact of pageTypesContacts?.content" [value]="typeContact.id">{{typeContact.nom}}</option>
+          </select>
+          <div>
+            <button class="btn btn-outline-secondary" type="button" routerLink="/ajouter-type-contact">Autre</button>
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveContactDossier(id1)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

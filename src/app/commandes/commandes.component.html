@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Commandes</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Référence</th> <th>Date Création</th> <th>Montant</th> <th>Editer</th> <th *ngIf="authority==='magasinier'">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let commande of listCommandes">
+          <td>{{commande.reference}}</td>
+          <td>{{commande.dateCreation}}</td>
+          <td>{{commande.montant}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditCommande(commande.id)">Editer</button></td>
+          <td *ngIf="authority==='magasinier'"><button type="button" class="btn btn-danger" (click)="onDeleteCommande(commande)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div *ngIf="authority==='magasinier'">
+        <button type="button" (click)="addCommande(id)" class="btn btn-primary">Ajouter une Commande</button>
+      </div>
+    </div>
+  </div>
+</div>
+

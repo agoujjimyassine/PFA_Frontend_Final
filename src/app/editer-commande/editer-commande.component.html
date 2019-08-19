@@ -1,0 +1,42 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur la Commande: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Réference</label>
+          <input class="form-control" type="text" *ngIf="commande" [(ngModel)]="commande.reference"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Date Création</label>
+          <input class="form-control" type="date" *ngIf="commande" [(ngModel)]="commande.dateCreation"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Montant</label>
+          <input class="form-control" type="number" *ngIf="commande" [(ngModel)]="commande.montant"/>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="updateCommande()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <app-pieces-detaches-commande *ngIf="commande" [id]="commande.id"></app-pieces-detaches-commande>
+  </div>
+
+</div>

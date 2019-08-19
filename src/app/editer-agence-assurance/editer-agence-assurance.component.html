@@ -1,0 +1,87 @@
+<div class="container" id="edit-style">
+<div class="card">
+  <div class="card-header">L'Agence d'Assurance concernée: </div>
+  <div class="card-body">
+    <div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-6">
+          <div class="form-group">
+            <label class="col-form-label">Adresse</label>
+            <input class="form-control" type="text" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.adresse"/>
+          </div>
+        </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Email</label>
+              <input class="form-control" type="email" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.email"/>
+            </div>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Fax</label>
+                <input class="form-control" type="tel" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.fax"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Raison Sociale</label>
+                <input class="form-control" type="text" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.raisonSociale"/>
+              </div>
+            </div>
+          </div>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Téléphone</label>
+                  <input class="form-control" type="tel" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.telephone"/>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Ville</label>
+                  <input class="form-control" type="text" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.ville"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Description</label>
+                <input class="form-control" type="text" *ngIf="agenceAssurance" [(ngModel)]="agenceAssurance.description"/>
+              </div>
+            </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Compagnie Assurance</label>
+
+                  <select class="custom-select" *ngIf="compagnieAssurance1" [(ngModel)]="compagnieAssurance1.id">
+                    <option *ngFor="let compagnieAssurance of pageCompagniesAssurances?.content" [value]="compagnieAssurance.id">{{compagnieAssurance.raisonSociale}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+              <div class="row">
+                <button class="btn btn-primary" (click)="updateAgenceAssurance()">Save</button>
+              </div>
+
+        </div>
+    </div>
+      </div>
+    </div>
+
+  <div>
+    <app-contacts-agences-assurances *ngIf="agenceAssurance" [id]="agenceAssurance.id"></app-contacts-agences-assurances>
+  </div>
+
+  </div>
+
+

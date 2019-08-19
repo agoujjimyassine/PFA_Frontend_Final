@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Roles</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Description</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let role of pageRoles?.content">
+          <td>{{role.nom}}</td>
+          <td>{{role.description}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditRole(role.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteRole(role)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+

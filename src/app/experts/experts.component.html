@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Experts</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Raison Sociale</th> <th>Téléphone</th> <th>Email</th> <th>Adresse</th> <th>Ville</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let expert of pageExperts?.content">
+          <td>{{expert.raisonSociale}}</td>
+          <td>{{expert.telephone}}</td>
+          <td>{{expert.email}}</td>
+          <td>{{expert.adresse}}</td>
+          <td>{{expert.ville}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditExpert(expert.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteExpert(expert)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" routerLink="/ajouter-compagnie-assurance" class="btn btn-primary">Ajouter Expert</button>
+      </div>
+    </div>
+  </div>
+</div>
+

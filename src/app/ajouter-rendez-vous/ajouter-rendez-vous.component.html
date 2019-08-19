@@ -1,0 +1,67 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouveau Rendez Vous: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Date</label>
+          <input class="form-control" type="date" [(ngModel)]="rendezVous.date"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Durée</label>
+          <input class="form-control" type="number" [(ngModel)]="rendezVous.duree"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Rapport</label>
+          <input class="form-control" type="text" [(ngModel)]="rendezVous.rapport"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Note</label>
+          <input class="form-control" type="text" [(ngModel)]="rendezVous.note"/>
+        </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Motif</label>
+
+          <select class="custom-select" [(ngModel)]="idm">
+            <option *ngFor="let motif of pageMotifs?.content" [value]="motif.id">{{motif.nom}}</option>
+          </select>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Statut Rendez Vous</label>
+
+          <select class="custom-select" [(ngModel)]="ids">
+            <option *ngFor="let statutRdv of pageStatutsRdvs?.content" [value]="statutRdv.id">{{statutRdv.nom}}</option>
+          </select>
+        </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="saveRendezVous(idm,ids)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

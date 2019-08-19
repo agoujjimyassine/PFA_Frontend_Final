@@ -1,0 +1,121 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouvelle Véhicule: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Couleur</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.couleur"/>
+        </div>
+          </div>
+
+          <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Date de la circulation</label>
+          <input class="form-control" type="date" [(ngModel)]="vehicule.dateCirculation"/>
+        </div>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Description</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.description"/>
+        </div>
+            </div>
+
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Immatriculation</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.immatriculation"/>
+        </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Kilométrage</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.kilometrage"/>
+        </div>
+            </div>
+
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Numéro de la série</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.numeroSerie"/>
+        </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Propriétaire</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.proprietaire"/>
+        </div>
+            </div>
+
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Référence de la couleur</label>
+          <input class="form-control" type="text" [(ngModel)]="vehicule.referenceCouleur"/>
+        </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Type Carburant</label>
+
+          <select class="custom-select" [(ngModel)]="idtc">
+            <option *ngFor="let typeCarburant of pagesTypesCarburants?.content" [value]="typeCarburant.id">{{typeCarburant.nom}}</option>
+          </select>
+        </div>
+            </div>
+
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Puissance Fiscale</label>
+
+          <select class="custom-select" [(ngModel)]="idpf">
+            <option *ngFor="let puissanceFiscale of pagePuissancesFiscales?.content" [value]="puissanceFiscale.id">{{puissanceFiscale.nom}}</option>
+          </select>
+        </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Marque Véhicule</label>
+
+          <select class="custom-select" [(ngModel)]="idmav">
+            <option *ngFor="let marqueVehicule of pageMarquesVehicules?.content" [value]="marqueVehicule.id">{{marqueVehicule.nom}}</option>
+          </select>
+        </div>
+            </div>
+
+            <div class="col-6">
+        <div class="form-group">
+          <label class="col-form-label">Modéle Véhicule</label>
+
+          <select class="custom-select" [(ngModel)]="idmov">
+            <option *ngFor="let modeleVehicule of pageModelesVehicules?.content" [value]="modeleVehicule.id">{{modeleVehicule.nom}}</option>
+          </select>
+        </div>
+            </div>
+          </div>
+
+        <button class="btn btn-primary" (click)="saveVehicule(idpf,idtc,idmov,idmav)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Dossiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Numéro</th> <th>Date Création</th> <th>Statut</th> <th>Observation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let expertDossier of listExpertsDossiers">
+          <td *ngIf="expertDossier?.dossier">{{expertDossier.dossier.numero}}</td>
+          <td *ngIf="expertDossier?.dossier">{{expertDossier.dossier.dateCreation}}</td>
+          <td *ngIf="expertDossier?.dossier">{{expertDossier.dossier.statut}}</td>
+          <td *ngIf="expertDossier?.dossier">{{expertDossier.dossier.observation}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

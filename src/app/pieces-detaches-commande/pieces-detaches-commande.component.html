@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Piéces Détachées</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Référence</th> <th>Nom</th> <th>Prix</th> <th>Quantite</th> <th>Etat</th> <th>Editer</th> <th *ngIf="authority==='magasinier'">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pieceDetache of listPiecesDetaches">
+          <td *ngIf="pieceDetache">{{pieceDetache.reference}}</td>
+          <td *ngIf="pieceDetache">{{pieceDetache.nom}}</td>
+          <td *ngIf="pieceDetache">{{pieceDetache.prix}}</td>
+          <td *ngIf="pieceDetache">{{pieceDetache.quantite}}</td>
+          <td *ngIf="pieceDetache?.etatPiece">{{pieceDetache.etatPiece.nom}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditPieceDetache(pieceDetache.id)">Editer</button></td>
+          <td *ngIf="authority==='magasinier'"><button type="button" class="btn btn-danger" (click)="onDeletePieceDetache(pieceDetache)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div *ngIf="authority==='magasinier'">
+        <button type="button" (click)="addPieceDetache(id)" class="btn btn-primary">Ajouter une Piéce</button>
+      </div>
+    </div>
+  </div>
+</div>
+

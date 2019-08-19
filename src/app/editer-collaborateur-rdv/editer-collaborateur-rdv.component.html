@@ -1,0 +1,38 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur le Collaborateur: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Nom</label>
+              <input class="form-control" type="text" *ngIf="collaborateurRdv?.collaborateur" [(ngModel)]="collaborateurRdv.collaborateur.nom"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Prénom</label>
+              <input class="form-control" type="text" *ngIf="collaborateurRdv?.collaborateur" [(ngModel)]="collaborateurRdv?.collaborateur.prenom"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Description</label>
+              <input class="form-control" type="text" *ngIf="collaborateurRdv" [(ngModel)]="collaborateurRdv.description"/>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="updateCollaborateurRdv()">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

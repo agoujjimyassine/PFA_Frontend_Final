@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Fichiers</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Nom</th> <th>Chemin</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fichier of listFichiers">
+          <td>{{fichier.nom}}</td>
+          <td>{{fichier.chemin}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditFichier(fichier.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteFichier(fichier)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addFichier(id)" class="btn btn-primary">Ajouter un Fichier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

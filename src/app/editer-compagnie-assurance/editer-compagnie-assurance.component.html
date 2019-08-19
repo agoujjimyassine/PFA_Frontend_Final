@@ -1,0 +1,35 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Informations générales sur la compagnie d'assurance: </div>
+    <div class="card-body">
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Raison Sociale</label>
+                <input class="form-control" type="text" *ngIf="compagnieAssurance" [(ngModel)]="compagnieAssurance.raisonSociale"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Logo</label>
+                <input class="form-control" type="text" *ngIf="compagnieAssurance" [(ngModel)]="compagnieAssurance.logo"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-primary" (click)="updateCompagnieAssurance()">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <app-agences-assurances-compagnie-assurance *ngIf="compagnieAssurance" [id]="compagnieAssurance.id"></app-agences-assurances-compagnie-assurance>
+  </div>
+
+</div>

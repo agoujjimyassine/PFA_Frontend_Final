@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="table-style">
+      <h4>Liste des Contrats d'Assurance</h4>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Numéro Police</th> <th>Date Début</th> <th>Date Fin</th> <th>Type</th> <th>Editer</th> <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contratAssurance of listContratsAssurances">
+          <td>{{contratAssurance.numeroPolice}}</td>
+          <td>{{contratAssurance.dateDebut}}</td>
+          <td>{{contratAssurance.dateFin}}</td>
+          <td *ngIf="contratAssurance?.typeContrat">{{contratAssurance.typeContrat.nom}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="onEditContratAssurance(contratAssurance.id)">Editer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="onDeleteContratAssurance(contratAssurance)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" (click)="addContratAssurance(id)" class="btn btn-primary">Ajouter un Fichier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

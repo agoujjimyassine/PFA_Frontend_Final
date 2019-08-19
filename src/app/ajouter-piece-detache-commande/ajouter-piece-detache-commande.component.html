@@ -1,0 +1,57 @@
+<div class="container" id="edit-style">
+  <div class="card">
+    <div class="card-header">Nouvelle Piéce Détachée: </div>
+    <div class="card-body">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Référence</label>
+              <input class="form-control" type="text" [(ngModel)]="pieceDetache.reference"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Nom</label>
+              <input class="form-control" type="text" [(ngModel)]="pieceDetache.nom"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Prix</label>
+              <input class="form-control" type="number" [(ngModel)]="pieceDetache.prix"/>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Quantité</label>
+              <input class="form-control" type="number" [(ngModel)]="pieceDetache.quantite"/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-6">
+            <div class="form-group">
+              <label class="col-form-label">Etat</label>
+
+              <select class="custom-select" [(ngModel)]="id1">
+                <option *ngFor="let etatPiece of pageEtatPieces?.content" [value]="etatPiece.id">{{etatPiece.nom}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="savePieceDetache(id1)">Save</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
