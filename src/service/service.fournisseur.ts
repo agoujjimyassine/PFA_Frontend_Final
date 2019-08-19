@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {ModelFournisseur} from '../model/model.fournisseur';
 
 @Injectable()
-export class FournisseursService {
+export class ServiceFournisseur {
 
   constructor(private http: HttpClient) {}
 

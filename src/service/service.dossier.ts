@@ -4,12 +4,17 @@ import 'rxjs-compat/add/operator/map';
 import {ModelDossier} from '../model/model.dossier';
 
 @Injectable()
-export class DossiersService {
+export class ServiceDossier {
 
   constructor(private http: HttpClient) {}
 
   getDossiers() {
     return this.http.get('http://localhost:8080/dossiers')
+      .map(resp => resp);
+  }
+
+  getDossiersByIdAgenceAssurance(id: number) {
+    return this.http.get('http://localhost:8080/dossiersByIdAgenceAssurance/' + id)
       .map(resp => resp);
   }
 

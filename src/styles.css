@@ -8,9 +8,18 @@
   margin-top: 20px;
   min-width: 250px;
   max-width: 250px;
-  background-color: #D2FBF8;
+  background-color: aliceblue;
 }
 
 #table-style{
   margin-top: 50px;
 }
+
+#edit-style{
+  margin-top: 20px;
+}
+
+#nav-style{
+  margin-top: 50px;
+}
+

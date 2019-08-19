@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModelDossier} from '../../model/model.dossier';
-import {DossiersService} from '../../services/dossiers.service';
+import {ServiceDossier} from '../../service/service.dossier';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajouter-dossier',
@@ -10,20 +11,21 @@ import {DossiersService} from '../../services/dossiers.service';
 export class AjouterDossierComponent implements OnInit {
 
   dossier: ModelDossier = new ModelDossier();
-  mode = 1;
 
-  constructor(private dossiersService: DossiersService) { }
+  constructor(private dossierService: ServiceDossier, private router: Router) { }
 
   ngOnInit() {
   }
 
   saveDossier() {
-    this.dossiersService.saveDossier(this.dossier)
+    this.dossierService.saveDossier(this.dossier)
       .subscribe(data => {
         this.dossier = data as ModelDossier;
-        this.mode = 2;
+        alert('Dossier ajouté avec succès');
+        this.router.navigate(['dossiers']);
       }, error => {
         console.log(error);
+        alert('Probléme');
       });
   }
 }

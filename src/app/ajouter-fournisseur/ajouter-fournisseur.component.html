@@ -1,46 +1,26 @@
-<div class="container">
-  <div class="card" *ngIf="mode==1">
+<div class="container" id="edit-style">
+  <div class="card">
     <div class="card-header">Nouveau Fournisseur: </div>
     <div class="card-body">
       <div>
 
+        <div class="row">
+          <div class="col-6">
         <div class="form-group">
-          <label class="custom-control-label">Adresse</label>
+          <label class="col-form-label">Adresse</label>
           <input class="form-control" type="text" [(ngModel)]="fournisseur.adresse"/>
         </div>
+          </div>
 
+          <div class="col-6">
         <div class="form-group">
-          <label class="custom-control-label">Nom</label>
+          <label class="col-form-label">Nom</label>
           <input class="form-control" type="text" [(ngModel)]="fournisseur.nom"/>
+        </div>
+          </div>
         </div>
 
         <button class="btn btn-primary" (click)="saveFournisseur()">Save</button>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="card" *ngIf="mode==2">
-    <div class="card-header">Confirmation</div>
-    <div class="card-body">
-      <div>
-
-        <div class="form-group">
-          <label class="custom-control-label">ID: </label>
-          <label>{{fournisseur.id}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Adresse: </label>
-          <label>{{fournisseur.adresse}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Nom: </label>
-          <label>{{fournisseur.nom}}</label>
-        </div>
-
-        <button class="btn btn-primary" (click)="mode=1">Nouveau Dossier</button>
 
       </div>
     </div>

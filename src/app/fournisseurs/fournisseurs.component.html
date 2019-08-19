@@ -5,21 +5,20 @@
       <table class="table">
         <thead class="thead-dark">
         <tr>
-          <th>ID</th> <th>Adresse</th> <th>Nom</th> <th>Editer</th> <th>Supprimer</th>
+          <th>Adresse</th> <th>Nom</th> <th>Editer</th> <th *ngIf="authority==='admin'">Supprimer</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let fournisseur of pageFournisseurs?.content">
-          <td>{{fournisseur.id}}</td>
-          <td>{{fournisseur.adresse}}</td>
-          <td>{{fournisseur.nom}}</td>
-          <td><button type="button" class="btn btn-primary" (click)="onEditFournisseur(fournisseur.id)">Editer</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="onDeleteFournisseur(fournisseur)">Supprimer</button></td>
+          <td *ngIf="fournisseur.nom!='Rien'">{{fournisseur.adresse}}</td>
+          <td *ngIf="fournisseur.nom!='Rien'">{{fournisseur.nom}}</td>
+          <td *ngIf="fournisseur.nom!='Rien'"><button type="button" class="btn btn-primary" (click)="onEditFournisseur(fournisseur.id)">Editer</button></td>
+          <td *ngIf="fournisseur.nom!='Rien'"><div *ngIf="authority==='admin'"><button type="button" class="btn btn-danger" (click)="onDeleteFournisseur(fournisseur)">Supprimer</button></div></td>
         </tr>
         </tbody>
       </table>
-      <div>
-        <button type="button" routerLink="/ajouter-fournisseur" class="btn btn-primary">Ajouter un Fournisseur</button>
+      <div *ngIf="authority==='admin'">
+        <button type="button" routerLink="/ajouter-fournisseur" class="btn btn-primary">Ajouter Fournisseur</button>
       </div>
     </div>
   </div>

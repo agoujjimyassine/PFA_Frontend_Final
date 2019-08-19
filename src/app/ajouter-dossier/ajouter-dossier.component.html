@@ -1,69 +1,46 @@
-<div class="container">
-  <div class="card" *ngIf="mode==1">
+<div class="container" id="edit-style">
+  <div class="card">
     <div class="card-header">Nouveau Dossier: </div>
       <div class="card-body">
         <div>
 
+          <div class="row">
+            <div class="col-6">
           <div class="form-group">
-            <label class="custom-control-label">Numéro</label>
+            <label class="col-form-label">Numéro</label>
             <input class="form-control" type="text" [(ngModel)]="dossier.numero"/>
           </div>
-
+            </div>
+            <div class="col-6">
           <div class="form-group">
-            <label class="custom-control-label">Date de Création</label>
+            <label class="col-form-label">Date de Création</label>
             <input class="form-control" type="date" [(ngModel)]="dossier.dateCreation"/>
           </div>
-
-          <div class="form-group">
-            <label class="custom-control-label">Statut</label>
-            <input class="form-control" type="text" [(ngModel)]="dossier.statut"/>
+            </div>
           </div>
 
+          <div class="row">
+            <div class="col-6">
           <div class="form-group">
-            <label class="custom-control-label">Observation</label>
+            <label class="col-form-label">Statut</label>
+            <select class="custom-select" [(ngModel)]="dossier.statut">
+              <option>En cours</option>
+            </select>
+          </div>
+            </div>
+
+            <div class="col-6">
+          <div class="form-group">
+            <label class="col-form-label">Observation</label>
             <input class="form-control" type="text" [(ngModel)]="dossier.observation"/>
+          </div>
+            </div>
           </div>
 
           <button class="btn btn-primary" (click)="saveDossier()">Save</button>
 
         </div>
       </div>
-  </div>
-
-  <div class="card" *ngIf="mode==2">
-    <div class="card-header">Confirmation</div>
-    <div class="card-body">
-      <div>
-
-        <div class="form-group">
-          <label class="custom-control-label">ID: </label>
-          <label>{{dossier.id}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Numéro: </label>
-          <label>{{dossier.numero}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Date de Création: </label>
-          <label>{{dossier.dateCreation}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Statut: </label>
-          <label>{{dossier.statut}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Observation: </label>
-          <label>{{dossier.observation}}</label>
-        </div>
-
-        <button class="btn btn-primary" (click)="mode=1">Nouveau Dossier</button>
-
-      </div>
-    </div>
   </div>
 
 </div>

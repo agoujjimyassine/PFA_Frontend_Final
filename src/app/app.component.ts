@@ -1,13 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from './auth/token-storage.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  info: any;
+  private roles: string[];
+  private authority: string;
 
-  constructor() {
+  constructor(private tokenStorage: TokenStorageService, private token: TokenStorageService) { }
 
+  ngOnInit() {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+
+    if (this.tokenStorage.getToken()) {
+      this.roles = this.tokenStorage.getAuthorities();
+      this.roles.every(role => {
+        if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        } else if (role === 'ROLE_ACCUEIL') {
+          this.authority = 'accueil';
+          return false;
+        } else if (role === 'ROLE_SECRETARIAT') {
+          this.authority = 'secretariat';
+          return false;
+        } else if (role === 'ROLE_MAGASINIER') {
+          this.authority = 'magasinier';
+          return false;
+        }
+        this.authority = 'mecanicien';
+        return true;
+      });
+    }
+  }
+
+  logout() {
+    this.token.signOut();
+    window.location.reload();
   }
 }

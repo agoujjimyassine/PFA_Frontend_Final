@@ -5,25 +5,23 @@
       <table class="table">
         <thead class="thead-dark">
         <tr>
-          <th>ID</th> <th>Date de Création</th> <th>Numéro</th> <th>Observation</th> <th>Statut</th> <th>Editer</th> <th>Supprimer</th>
+          <th>Date de Création</th> <th>Numéro</th> <th>Observation</th> <th>Statut</th> <th>Editer</th> <th *ngIf="authority==='accueil'">Supprimer</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let dossier of pageDossiers?.content">
-          <td>{{dossier.id}}</td>
           <td>{{dossier.dateCreation}}</td>
           <td>{{dossier.numero}}</td>
           <td>{{dossier.observation}}</td>
           <td>{{dossier.statut}}</td>
           <td><button type="button" class="btn btn-primary" (click)="onEditDossier(dossier.id)">Editer</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="onDeleteDossier(dossier)">Supprimer</button></td>
+          <td *ngIf="authority==='accueil'"><button type="button" class="btn btn-danger" (click)="onDeleteDossier(dossier)">Supprimer</button></td>
         </tr>
         </tbody>
       </table>
-      <div>
-        <button type="button" routerLink="/ajouter-dossier" class="btn btn-primary">Ajouter un Dossier</button>
+      <div *ngIf="authority==='accueil'">
+        <button type="button" routerLink="/ajouter-dossier" class="btn btn-primary">Ajouter Dossier</button>
       </div>
     </div>
   </div>
 </div>
-

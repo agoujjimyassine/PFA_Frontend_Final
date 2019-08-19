@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DossiersService} from '../../services/dossiers.service';
+import {ServiceDossier} from '../../service/service.dossier';
 import {ModelDossier} from '../../model/model.dossier';
 import {Router} from '@angular/router';
+import {TokenStorageService} from '../auth/token-storage.service';
 
 
 @Component({
@@ -12,19 +13,50 @@ import {Router} from '@angular/router';
 
 export class DossiersComponent implements OnInit {
 
+  info: any;
+  private roles: string[];
+  private authority: string;
   dossier: ModelDossier = new ModelDossier();
   pageDossiers;
   confirm: boolean;
 
-  constructor(private dossiersService: DossiersService, private router: Router) {}
+  constructor(private dossierService: ServiceDossier, private router: Router, private tokenStorage: TokenStorageService,
+              private token: TokenStorageService) {}
 
   ngOnInit() {
-    this.dossiersService.getDossiers()
+    this.dossierService.getDossiers()
       .subscribe(data => {
         this.pageDossiers = data;
       }, error => {
         console.log(error);
       });
+
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+
+    if (this.tokenStorage.getToken()) {
+      this.roles = this.tokenStorage.getAuthorities();
+      this.roles.every(role => {
+        if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        } else if (role === 'ROLE_ACCUEIL') {
+          this.authority = 'accueil';
+          return false;
+        } else if (role === 'ROLE_SECRETARIAT') {
+          this.authority = 'secretariat';
+          return false;
+        } else if (role === 'ROLE_MAGASINIER') {
+          this.authority = 'magasinier';
+          return false;
+        }
+        this.authority = 'mecanicien';
+        return true;
+      });
+    }
   }
 
   onEditDossier(id: number) {
@@ -34,7 +66,7 @@ export class DossiersComponent implements OnInit {
   onDeleteDossier(dossier: ModelDossier) {
     this.confirm = window.confirm('Etes-vous sûr de vouloir supprimer ce dossier ?');
     if (this.confirm) {
-      this.dossiersService.deleteDossier(dossier.id)
+      this.dossierService.deleteDossier(dossier.id)
         .subscribe(date => {
           alert('Suppression effectuée');
           this.pageDossiers.content.splice(

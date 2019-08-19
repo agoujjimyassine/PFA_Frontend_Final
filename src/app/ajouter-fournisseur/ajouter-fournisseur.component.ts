@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModelFournisseur} from '../../model/model.fournisseur';
-import {FournisseursService} from '../../services/fournisseurs.service';
+import {ServiceFournisseur} from '../../service/service.fournisseur';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajouter-fournisseur',
@@ -10,20 +11,21 @@ import {FournisseursService} from '../../services/fournisseurs.service';
 export class AjouterFournisseurComponent implements OnInit {
 
   fournisseur: ModelFournisseur = new ModelFournisseur();
-  mode = 1;
 
-  constructor(private fournisseursService: FournisseursService) { }
+  constructor(private fournisseurService: ServiceFournisseur, private router: Router) { }
 
   ngOnInit() {
   }
 
   saveFournisseur() {
-    this.fournisseursService.saveFournisseur(this.fournisseur)
+    this.fournisseurService.saveFournisseur(this.fournisseur)
       .subscribe(data => {
         this.fournisseur = data as ModelFournisseur;
-        this.mode = 2;
+        alert('Fournisseurs ajouté avec succès');
+        this.router.navigate(['fournisseurs']);
       }, error => {
         console.log(error);
+        alert('Probléme');
       });
   }
 }

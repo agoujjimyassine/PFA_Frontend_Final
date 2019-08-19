@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModelFournisseur} from '../../model/model.fournisseur';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FournisseursService} from '../../services/fournisseurs.service';
+import {ServiceFournisseur} from '../../service/service.fournisseur';
 
 @Component({
   selector: 'app-editer-fournisseur',
@@ -11,10 +11,11 @@ import {FournisseursService} from '../../services/fournisseurs.service';
 export class EditerFournisseurComponent implements OnInit {
 
   fournisseur: ModelFournisseur;
-  mode = 1;
   id: number;
 
-  constructor(private activatedRoute: ActivatedRoute, private fournisseurService: FournisseursService, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private fournisseurService: ServiceFournisseur,
+              private router: Router) {
     this.id = this.activatedRoute.snapshot.params.id;
   }
 
@@ -32,7 +33,7 @@ export class EditerFournisseurComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         alert('Mise à jour effectuée');
-        this.router.navigate(['dossiers']);
+        this.router.navigate(['fournisseurs']);
       }, error => {
         console.log(error);
         alert('Probléme');

@@ -1,69 +1,145 @@
-<div class="container">
-  <div class="card" *ngIf="mode==1">
-    <div class="card-header">Nouveau Dossier: </div>
+  <div class="container" id="edit-style">
+    <div class="row">
+    <div class="col-11">
+  <div class="card">
+    <div class="card-header">Informations générales sur le Dossier: </div>
     <div class="card-body">
       <div>
 
-        <div class="form-group">
-          <label class="custom-control-label">Numéro</label>
-          <input class="form-control" type="text" *ngIf="dossier" [(ngModel)]="dossier.numero"/>
-        </div>
+        <div class="container">
 
-        <div class="form-group">
-          <label class="custom-control-label">Date de Création</label>
-          <input class="form-control" type="date" *ngIf="dossier" [(ngModel)]="dossier.dateCreation"/>
-        </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Numéro</label>
+                <input class="form-control" type="text" *ngIf="dossier" [(ngModel)]="dossier.numero"/>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Date de Création</label>
+                <input class="form-control" type="date" *ngIf="dossier" [(ngModel)]="dossier.dateCreation"/>
+              </div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label class="custom-control-label">Statut</label>
-          <input class="form-control" type="text" *ngIf="dossier" [(ngModel)]="dossier.statut"/>
-        </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Statut</label>
+                <select class="custom-select" *ngIf="dossier" [(ngModel)]="dossier.statut">
+                  <option [value]="enCours">En cours</option>
+                  <option [value]="ferme">Fermé</option>
+                  <option [value]="suspendu">Suspendu</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="col-form-label">Observation</label>
+                <input class="form-control" type="text" *ngIf="dossier" [(ngModel)]="dossier.observation"/>
+              </div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label class="custom-control-label">Observation</label>
-          <input class="form-control" type="text" *ngIf="dossier" [(ngModel)]="dossier.observation"/>
-        </div>
+          <div class="row">
+            <button class="btn btn-primary" (click)="updateDossier()">Save</button>
+          </div>
 
-        <button class="btn btn-primary" (click)="updateDossier()">Save</button>
+        </div>
 
       </div>
     </div>
   </div>
 
-  <div class="card" *ngIf="mode==2">
-    <div class="card-header">Confirmation</div>
-    <div class="card-body">
-      <div>
+      <div *ngIf="authority==='accueil'"><app-editer-client *ngIf="dossier?.client" [id]="dossier.client.id"></app-editer-client></div>
 
-        <div class="form-group">
-          <label class="custom-control-label">ID: </label>
-          <label>{{dossier.id}}</label>
+      <div *ngIf="authority==='accueil'"><app-editer-vehicule *ngIf="dossier?.vehicule" [id]="dossier.vehicule.id"></app-editer-vehicule></div>
+
+      <div *ngIf="authority==='accueil'"><app-editer-demande-reparation *ngIf="dossier?.demandeReparation" [id]="dossier.demandeReparation.id"></app-editer-demande-reparation></div>
+
+      <div *ngIf="authority==='accueil'"><app-editer-agence-assurance *ngIf="dossier?.agenceAssurance" [id]="dossier.agenceAssurance.id"></app-editer-agence-assurance></div>
+
+      <div *ngIf="authority==='secretariat'"><app-editer-client *ngIf="dossier?.client" [id]="dossier.client.id"></app-editer-client></div>
+
+      <div *ngIf="authority==='secretariat'"><app-editer-vehicule *ngIf="dossier?.vehicule" [id]="dossier.vehicule.id"></app-editer-vehicule></div>
+
+      <div *ngIf="authority==='secretariat'"><app-editer-demande-reparation *ngIf="dossier?.demandeReparation" [id]="dossier.demandeReparation.id"></app-editer-demande-reparation></div>
+
+      <div *ngIf="authority==='secretariat'"><app-editer-agence-assurance *ngIf="dossier?.agenceAssurance" [id]="dossier.agenceAssurance.id"></app-editer-agence-assurance></div>
+
+      <div *ngIf="authority==='mecanicien'"><app-editer-demande-reparation *ngIf="dossier?.demandeReparation" [id]="dossier.demandeReparation.id"></app-editer-demande-reparation></div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-style">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='rendez-vous'">Rendez Vous</a></li>
+            <li *ngIf="authority==='accueil'" class="nav-item"><a class="nav-link" (click)="route='fichiers'">Fichiers</a></li>
+            <li *ngIf="authority==='accueil'" class="nav-item"><a class="nav-link" (click)="route='contacts'">Contacts</a></li>
+            <li *ngIf="authority==='accueil'" class="nav-item"><a class="nav-link" (click)="route='phases-dossiers'">Phases Dossiers</a></li>
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='fichiers'">Fichiers</a></li>
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='contacts'">Contacts</a></li>
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='phases-dossiers'">Phases Dossiers</a></li>
+            <li *ngIf="authority==='magasinier'" class="nav-item"><a class="nav-link" (click)="route='pieces-detaches'">Piéces Détachées</a></li>
+            <li *ngIf="authority==='mecanicien'" class="nav-item"><a class="nav-link" (click)="route='pieces-detaches'">Piéces Détachées</a></li>
+            <li *ngIf="authority==='accueil'" class="nav-item"><a class="nav-link" (click)="route='contrats-assurances'">Contrats Assurance</a></li>
+            <li *ngIf="authority==='accueil'" class="nav-item"><a class="nav-link" (click)="route='experts-dossiers'">Experts</a></li>
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='contrats-assurances'">Contrats Assurance</a></li>
+            <li *ngIf="authority==='secretariat'" class="nav-item"><a class="nav-link" (click)="route='experts-dossiers'">Experts</a></li>
+          </ul>
         </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Numéro: </label>
-          <label>{{dossier.numero}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Date de Création: </label>
-          <label>{{dossier.dateCreation}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Statut: </label>
-          <label>{{dossier.statut}}</label>
-        </div>
-
-        <div class="form-group">
-          <label class="custom-control-label">Observation: </label>
-          <label>{{dossier.observation}}</label>
-        </div>
-
-        <button class="btn btn-primary" (click)="mode=1">Nouveau Dossier</button>
-
       </div>
-    </div>
-  </div>
+    </nav>
 
+    <div *ngIf="route=='rendez-vous'">
+      <app-rendez-vous *ngIf="dossier" [id]="dossier.id"></app-rendez-vous>
+    </div>
+
+    <div *ngIf="route=='fichiers'">
+      <app-fichiers *ngIf="dossier" [id]="dossier.id"></app-fichiers>
+    </div>
+
+    <div *ngIf="route=='contacts'">
+      <app-contacts-dossiers *ngIf="dossier" [id]="dossier.id"></app-contacts-dossiers>
+    </div>
+
+      <div *ngIf="route=='phases-dossiers'">
+        <app-phases-dossiers *ngIf="dossier" [id]="dossier.id"></app-phases-dossiers>
+      </div>
+
+      <div *ngIf="route=='pieces-detaches'">
+        <app-pieces-detaches *ngIf="dossier" [id]="dossier.id"></app-pieces-detaches>
+      </div>
+
+      <div *ngIf="route=='contrats-assurances'">
+        <app-contrats-assurances *ngIf="dossier" [id]="dossier.id"></app-contrats-assurances>
+      </div>
+
+      <div *ngIf="route=='experts-dossiers'">
+        <app-experts-dossiers *ngIf="dossier" [id]="dossier.id"></app-experts-dossiers>
+      </div>
+
+    </div>
+
+    <div *ngIf="authority==='accueil'" class="col-1">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" (click)="addClient(dossier.id)" *ngIf="dossier.client == null">Ajouter Client</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" (click)="addVehicule(dossier.id)" *ngIf="dossier.vehicule == null">Ajouter Véhicule</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="addDemandeReparation(dossier.id)" *ngIf="dossier.demandeReparation == null">Ajouter Demande Réparation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="addAgenceAssurance(dossier.id)" *ngIf="dossier.agenceAssurance == null">Ajouter Agence Assurance</a>
+        </li>
+      </ul>
+    </div>
+
+    </div>
 </div>
+

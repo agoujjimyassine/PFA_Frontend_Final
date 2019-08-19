@@ -6,19 +6,26 @@
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"><a class="nav-link" routerLink="/statistiques">Statistiques</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/dossiers">Dossier</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/fournisseurs">Fournisseurs</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
+        <li *ngIf="authority === 'admin'" class="nav-item"><a class="nav-link" routerLink="/utilisateurs">Utilisateurs</a></li>
+        <li *ngIf="authority === 'admin'" class="nav-item"><a class="nav-link" routerLink="/statistiques">Statistiques</a></li>
+        <li *ngIf="authority === 'admin'" class="nav-item"><a class="nav-link" routerLink="/fournisseurs">Fournisseurs</a></li>
+        <li *ngIf="authority === 'admin'" class="nav-item"><a class="nav-link" routerLink="/parametrage">Paramétrage</a></li>
+        <li *ngIf="authority === 'accueil'" class="nav-item"><a class="nav-link" routerLink="/dossiers">Dossier</a></li>
+        <li *ngIf="authority === 'secretariat'" class="nav-item"><a class="nav-link" routerLink="/dossiers">Dossier</a></li>
+        <li *ngIf="authority === 'secretariat'" class="nav-item"><a class="nav-link" routerLink="/fournisseurs">Fournisseurs</a></li>
+        <li *ngIf="authority === 'mecanicien'" class="nav-item"><a class="nav-link" routerLink="/dossiers">Dossier</a></li>
+        <li *ngIf="authority === 'magasinier'" class="nav-item"><a class="nav-link" routerLink="/dossiers">Dossier</a></li>
+        <li *ngIf="authority === 'magasinier'" class="nav-item"><a class="nav-link" routerLink="/fournisseurs">Fournisseurs</a></li>
+        <li *ngIf="!authority" class="nav-item"><a class="nav-link" routerLink="auth/login">Login</a></li>
       </ul>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div *ngIf="authority">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+    </div>
   </div>
 </nav>
 
 <router-outlet>
 
 </router-outlet>
-
